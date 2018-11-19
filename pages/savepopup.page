@@ -1,0 +1,58 @@
+<apex:page standardController="Opportunity" extensions="extQuoteselection">   
+    <apex:form id="frm">        
+      <apex:detail subject="{!Opportunity.Id}" relatedList="false" title="false" inlineEdit="true"/> 
+        <apex:outputPanel id="tstpopup" rendered="{!val}" >  
+            <apex:outputPanel styleClass="popupBackground" layout="block" />
+            <apex:outputPanel styleClass="custPopup" layout="block">                 
+                    <apex:pageMessages ></apex:pageMessages>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td >
+                                <apex:outputLabel style="font-weight:bold;" value="Select Quote Properties: "></apex:outputLabel>
+                            </td>                                                       
+                        </tr>
+                    </table>     
+                    <br/>                              
+            </apex:outputPanel>                        
+        </apex:outputPanel>
+    </apex:form>
+    <style type="text/css">
+        .errorMsg{
+            width:159px;
+        }
+       .custPopup{
+           background-color: white;
+           border-width: 3px;
+           border-style: solid;
+           z-index: 9999;
+           left: 50%;
+           padding:10px;
+           position: absolute;           
+           width: 340px;
+           //margin-left: -80px;
+           top:100px;
+           margin-left: -170px;
+           //top:305px;           
+          border-radius: 5px;
+       }
+       .popupBackground{
+           background-color:black;
+           opacity: 0.20;
+           filter: alpha(opacity = 20);
+           position: absolute;
+           width: 100%;           
+           height: 100%;
+           top: 0;
+           left: 0;
+           z-index: 9998;
+       }
+       a.actionlink:hover{
+           text-decoration:underline;
+       }
+       .customactionLink {
+            color: #015BA7;
+            font-weight: normal;
+            text-decoration: none;
+        }
+   </style>        
+</apex:page>

@@ -1,0 +1,2 @@
+public class ContactExtension {
+}

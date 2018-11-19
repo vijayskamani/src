@@ -1,0 +1,21 @@
+<apex:page standardcontroller="Opportunity" extensions="SendEmailMessage"> 
+
+    <apex:pageBlock title="EMAIL TEST">
+        <apex:form >
+        <br />
+            <apex:outputLabel value="To" for="To"/>:<br/>
+            <apex:inputText value="{!toEmail}" id="email"/><br/><br/>
+                        
+            <apex:outputLabel value="Subject" for="Subject"/>:<br />     
+            <apex:inputTextarea value="{!subject}" id="Subject" cols="80" /><br/><br/>
+                        
+            <apex:outputLabel value="Body" for="Body"/>:<br />     
+            <apex:inputTextarea value="{!body}" id="Body" rows="10" cols="80"/><br/><br/>      
+            <br /><br />
+                        
+            <apex:commandButton value="Send Email" action="{!sendEmail}"  />
+            <apex:commandButton value="Cancel" action="{!cancel}"/> 
+        
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>

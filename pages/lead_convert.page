@@ -1,0 +1,3 @@
+<apex:page controller="Nanostuffs_clsConvertLead" action="{!convert}">
+<apex:pageMessages />
+</apex:page>

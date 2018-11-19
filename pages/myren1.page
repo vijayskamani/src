@@ -1,0 +1,16 @@
+<apex:page controller="samp" >
+  <apex:form >
+   <apex:commandButton value="rept" immediate="true" onclick="{!rept}" action="{!rept}"/>
+      <apex:outputPanel id="out" rendered="{!val}" >
+         <apex:pageBlock >
+           <apex:pageBlockSection columns="1">
+            <apex:inputText label="name" />
+            <apex:inputSecret label="password"/>
+            
+   <apex:commandButton value="rept" immediate="true" rerender="out" />
+           
+           </apex:pageBlockSection>
+         </apex:pageBlock>
+      </apex:outputPanel>
+  </apex:form>
+</apex:page>

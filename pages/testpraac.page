@@ -1,0 +1,3 @@
+<apex:page renderAs="Pdf">
+<analytics:reportChart reportId="00O360000079vJ0"></analytics:reportChart>
+</apex:page>

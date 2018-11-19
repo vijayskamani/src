@@ -1,0 +1,19 @@
+<apex:page standardController="Contact" extensions="AccountCases">
+    <apex:form > 
+        <apex:pageblock id="CustomList" title="Cases for Account" mode="maindetail" >   
+            <apex:pageBlockTable value="{!Cas}" var="cs" rendered="{!NOT(ISNULL(Cas))}" > 
+                <apex:column >
+                    <apex:commandLink value="{!cs.CaseNumber}" onclick="javascript:srcUp('{!cs.ID}'}?isdp=vw" target="_top" />
+                </apex:column>
+                <apex:column value="{!cs.Contact.Name}" />                  
+                <apex:column value="{!cs.Subject}"/>        
+                <apex:column value="{!cs.Status}"/>        
+                <apex:column value="{!cs.Priority}"/>       
+                <apex:column value="{!cs.CreatedDate}"/>
+                <apex:column value="{!cs.ClosedDate}"/>   
+            </apex:pageBlockTable>   
+        <apex:outputLabel value="No records to display" rendered="{!(ISNULL(Cas))}" styleClass="noRowsHeader">
+        </apex:outputLabel> 
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

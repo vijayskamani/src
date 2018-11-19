@@ -1,0 +1,27 @@
+<apex:page standardController="Opportunity"
+                   extensions="RefreshPage"
+          standardStylesheets="true"
+                   showHeader="true"
+           >
+    <script>
+    sfdcPage.oldsave = sfdcPage.save;
+    sfdcPage.save = function(id) {
+    
+        alert('ok');
+        /* window.setTimeout('window.location.href = window.location.href',10); */
+        window.setTimeout('window.location.reload(true);',10);
+        this.oldsave(id);
+    }
+</script>
+    <apex:detail subject="{!id}"  showChatter="false"  relatedList="false"  inlineEdit="true" />
+
+    <c:conditionstarifairesv3 />
+
+    <apex:relatedList list="OpportunityContactRoles"/>
+    <apex:relatedList list="OpportunityPartnersFrom"/>
+    <apex:relatedList list="OpenActivities"/>
+    <apex:relatedList list="ActivityHistories"/>
+    
+    <apex:relatedList list="ProcessSteps"/>
+    
+</apex:page>

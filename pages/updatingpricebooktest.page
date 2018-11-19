@@ -1,0 +1,66 @@
+<apex:page controller="CustomPBListController" tabStyle="Pricebook2"  readOnly="true" >
+ <apex:form >
+     <apex:stylesheet value="{!URLFOR($Resource.jQueryDataTablesZip, 'jQueryDataTablesZip/css/jquery.dataTables.css')}"/>
+ <style type="text/css">
+ .sorting {
+background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'jQueryDataTablesZip/images/sort_both.png') }') no-repeat center right !important;
+padding-right: 20px !important;
+ }
+ .sorting_asc {
+background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'jQueryDataTablesZip/images/sort_asc.png') }') no-repeat center right !important;
+padding-right: 20px !important;
+ }
+ .sorting_desc {
+background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'jQueryDataTablesZip/images/sort_desc.png') }') no-repeat center right !important;
+padding-right: 20px !important;
+}
+.sorting_asc_disabled {
+background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'jQueryDataTablesZip/images/sort_asc_disabled.png') }') no-repeat center right !important;
+padding-right: 20px !important;
+ }
+ .sorting_desc_disabled {
+background: #f2f3f3 url('{! URLFOR($Resource.jQueryDataTablesZip, 'jQueryDataTablesZip/images/sort_desc_disabled.png') }') no-repeat center right !important;
+padding-right: 20px !important;
+ }
+ table.dataTable tr.odd { background-color: white; }
+ table.dataTable tr.even { background-color: white; }
+ table.dataTable tr.odd td.sorting_1 { background-color: white; }
+ table.dataTable tr.odd td.sorting_2 { background-color: white; }
+ table.dataTable tr.odd td.sorting_3 { background-color: white; }
+ table.dataTable tr.even td.sorting_1 { background-color: white; }
+ table.dataTable tr.even td.sorting_2 { background-color: white; }
+ table.dataTable tr.even td.sorting_3 { background-color: white; }
+ .dataTables_length, .dataTables_filter, .dataTables_info,   .dataTables_paginate {
+padding: 3px;
+ }
+ </style>
+     <apex:pageBlock >
+        <apex:commandButton action="{!export}" value="Export to Excel" />
+        <apex:commandButton action="{!exportall}" value="Export All Pricebooks" />
+         <apex:pageBlockSection >
+             <apex:selectList value="{!chosenSize}" size="1">
+                 <apex:actionSupport action="{!ApplyFilter}" event="onchange"/>
+                 <b>Pricebooks: </b>
+                 <apex:selectOptions value="{!sizeOptions}"/>
+             </apex:selectList>
+        </apex:pageBlockSection>
+         <apex:pageBlockTable value="{!ssc.Records}" var="a" styleClass="dataTable">
+             <apex:column value="{!a['Product2.Name']}"/>
+             <apex:column value="{!a['ProductCode']}"/>
+             <apex:column value="{!a['UnitPrice']}"/>
+             
+             <apex:column value="{!a['Pricebook2.Name']}"/>
+     </apex:pageBlockTable>
+
+
+     </apex:pageBlock>
+ <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.jQueryDataTablesZip, 'jQueryDataTablesZip/js/jquery.js')}">   </script>
+ <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.jQueryDataTablesZip, 'jQueryDataTablesZip/js/jquery.dataTables.js')}"></script>
+  <script type="text/javascript" language="javascript">
+ var j$ = jQuery.noConflict();
+ j$('table.dataTable').dataTable({
+ sPaginationType: "full_numbers"
+ });
+ </script>
+ </apex:form>
+ </apex:page>

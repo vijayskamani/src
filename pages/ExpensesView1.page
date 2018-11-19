@@ -1,0 +1,55 @@
+<apex:page StandardController="My_Expen__c" extensions="ExpensesView">
+ <apex:form >
+   <Apex:pageBlock >
+   <apex:pageBlockButtons location="bottom">
+    <Apex:commandButton value="GET" action="{!prepareRecords}" rerender="records" disabled="{!disableFilters}" />
+    
+   </apex:pageBlockButtons>
+     <Apex:pageBlockSection >
+       <apex:pageBlockSectionItem >
+      
+                    <apex:outputLabel >Month </apex:outputLabel>
+                    <apex:outputPanel >
+                        <apex:selectList value="{!selectedYear}" size="1" >
+                            <apex:selectOptions value="{!yearSP}"/>
+                        </apex:selectList>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+     </Apex:pageBlockSection>
+   </Apex:pageBlock>
+   <apex:pageBlock >
+     <apex:outputPanel id="records">
+       <apex:pageBlockTable value="{!lst}" var="l">
+         <apex:column headerValue="Name">
+        <apex:outputField value="{!l.Expense_Name__c}"/>
+       </apex:column>
+       <apex:column headerValue="Reason" >
+        <apex:outputField value="{!l.Reason__c}"/>
+       </apex:column>
+       <apex:column headerValue="Type" >
+        <apex:outputField value="{!l.Type__c}"/>
+       </apex:column>
+       <apex:column headerValue="Amount" >
+        <apex:outputField value="{!l.Amount__c}"/>
+       </apex:column>
+       <apex:column headerValue="Paid Amount" >
+        <apex:outputField value="{!l.Due__c}"/>
+       </apex:column>
+       <apex:column headerValue="Target Date" >
+        <apex:outputField value="{!l.Target_Date__c}"/>
+       </apex:column>
+        <apex:column headerValue="Due" >
+        <apex:outputField value="{!l.Due2__c}"/>
+       </apex:column>
+       <apex:column headerValue="Other" >
+        <apex:outputField value="{!l.Other__c}"/>
+       </apex:column>
+       
+       <apex:column headerValue="Complete" >
+        <apex:outputField value="{!l.Completed__c}"/>
+       </apex:column>
+       </apex:pageBlockTable>
+     </apex:outputPanel>
+   </apex:pageBlock>
+ </apex:form>
+</apex:page>

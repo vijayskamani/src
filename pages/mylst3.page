@@ -1,0 +1,27 @@
+<apex:page standardController="Account" extensions="devBoardMultiAdd">
+    <apex:form >
+        <apex:pageBlock id="theForm">
+                <apex:pageBlockSection title="New item request">
+          <apex:repeat value="{!accounts}" var="acc" id="theRepeat">
+        
+    
+        <apex:inputField value="{!acc.Name}" /><br/>
+
+    </apex:repeat>             
+                    
+
+                </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Add new Item Req" action="{!addfields}" rerender="theForm">
+                <apex:commandButton value="Save" action="{!saveAccs}" />                 
+                </apex:commandButton>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        
+        
+        
+
+
+           
+    </apex:form>
+</apex:page>

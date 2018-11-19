@@ -1,0 +1,9 @@
+<apex:component >
+    <apex:attribute name="rerenderonupdate" type="String" description="TODO: Describe me"/>
+    <apex:attribute name="componentcontact" type="String" description="TODO: Describe me"/>
+    <apex:attribute name="someaction" type="String" description="TODO: Describe me"/>
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  This is your new Component: multirowcomponent
+  <!-- End Default Content REMOVE THIS -->
+</apex:component>

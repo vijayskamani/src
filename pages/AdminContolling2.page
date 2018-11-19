@@ -1,0 +1,25 @@
+<apex:page controller="DescibeDemoController">
+    <apex:form id="Describe">
+        <apex:pageBlock id="block2" >
+            <apex:pageblockbuttons location="top" >
+                    <apex:commandButton value="Show Fields" action="{!showFields}" />
+            </apex:pageblockbuttons>
+            
+            <apex:pageblocksection >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >Object Name</apex:outputLabel>
+                    <apex:selectList value="{!selectedObject}" size="1">
+                        <apex:selectOptions value="{!ListObejectName}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageblocksection>
+        </apex:pageBlock>
+        
+        <apex:pageBlock id="result" title="Field Detail for {!selectedObject}" rendered="{!if(listField.size > 0 ,true,false)}"   >
+            <apex:pageBlockTable value="{!listField}" var="field" rendered="{!if(listField.size > 0 ,true,false)}"> 
+                <apex:column value="{!field.fieldName }" headerValue="Name" />
+                <apex:column value="{!field.fieldAPIName }"  headerValue="API Name"/>
+            </apex:pageblockTable>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

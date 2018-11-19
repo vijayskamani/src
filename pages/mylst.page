@@ -1,0 +1,13 @@
+<apex:page controller="vfmylst" >
+<apex:form >
+   <apex:pageBlock >
+        <apex:pageBlockSection >
+              <apex:inputField value="{!acc.name}"/>
+              <apex:commandButton value="add more" action="{!add}"/>
+        </apex:pageBlockSection>
+        
+    
+        
+   </apex:pageBlock> 
+</apex:form>
+</apex:page>

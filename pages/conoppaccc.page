@@ -1,0 +1,29 @@
+<apex:page controller="MyController2">
+<apex:tabpanel switchType="Ajax">
+<apex:tab label="Add Contact" labelWidth="300">
+<apex:form >
+<apex:pageBlock >
+
+<apex:commandButton Value="Add Contact" action="{!InsertNewContact}"/>
+<apex:pageBlockSection >
+<apex:inputField label="First Name" value="{!con.FirstName}"/>
+<apex:inputField label="Last Name" value="{!con.LastName}"/>
+</apex:pageBlockSection>
+
+</apex:pageBlock>
+</apex:form>
+</apex:tab>
+<apex:tab label="Add Opportunity" labelWidth="300">
+<apex:form >
+<apex:pageBlock >
+<apex:commandButton Value="Add Opportunity" action="{!InsertNewOpportunity}"/>
+<apex:pageBlockSection >
+<apex:inputField label="Opportunity Name" value="{!op.Name}"/>
+<apex:inputField label="Opportunity Stage" value="{!op.StageName}"/>
+<apex:inputField label="Opportunity Date" value="{!op.CloseDate}"/>
+</apex:pageBlockSection>
+</apex:pageBlock>
+</apex:form>
+</apex:tab>
+</apex:tabPanel>
+</apex:page>

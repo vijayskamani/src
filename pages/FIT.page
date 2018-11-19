@@ -1,0 +1,26 @@
+<apex:page standardController="Fitness__c" extensions="fitcontroller">
+<style>
+    .tableWithBgImage {
+         margin : 0px;
+    background-image: url(https://sar-dev-ed--c.na30.visual.force.com/resource/1522866033000/logo);
+    background-position : center 0;
+    width:1024px;
+    height:875px;
+    background-size : auto auto;
+    background-attachment : scroll;
+    background-repeat : no-repeat;
+    overflow :hidden; 
+    }
+</style>
+     <apex:form >
+    <Apex:pageBlock >
+       <apex:pageBlockSection collapsible="false" columns="5" >
+                               
+                                 <Apex:inputField value="{!Fitness__c.Week__c}"/>
+                                 <Apex:inputField value="{!Fitness__c.Day__c}"/>
+                                 <Apex:inputField value="{!Fitness__c.Workout__c}"/>
+                                   <Apex:inputField value="{!Fitness__c.Completed__c}"/>
+            </apex:pageBlockSection>
+      </Apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,40 @@
+<apex:page controller="AccountMergeSearchController">
+    <apex:form >
+        <apex:pageBlock mode="edit" id="block">
+
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!next}" value="Merge Accounts" disabled="{!ISNULL(searchResults)}"/>
+            </apex:pageBlockButtons>
+            <apex:pageMessages />
+
+            <apex:pageBlockSection >
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel for="searchText">Search for Accounts</apex:outputLabel>
+                    <apex:panelGroup >
+                    <apex:inputText id="searchText" value="{!searchText}"/>
+                    <!-- We could have rerendered just the resultsBlock below but we want the  -->
+                    <!-- 'Merge' button to update also so that it is clickable. -->
+                    <apex:commandButton value="Search" action="{!search}" rerender="block" status="status"/>
+                    </apex:panelGroup>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <apex:actionStatus id="status" startText="Searching... please wait..."/>
+            <apex:pageBlockSection title="Search Results" id="resultsBlock" columns="1">
+                <apex:pageBlockTable value="{!searchResults}" var="a" rendered="{!NOT(ISNULL(searchResults))}">
+                    <apex:column width="25px">
+                        <apex:inputCheckbox value="{!a.checked}"/>
+                    </apex:column>
+                    <apex:column value="{!a.acct.Name}"/>
+                    <apex:column value="{!a.acct.Id}"/>
+                   <!-- <apex:column value="{!a.acct.Secondary_Name__c}" headerValue="Secondary"/>
+                    <apex:column value="{!a.acct.PersonEmail}"/>
+                    <apex:column value="{!a.acct.Control_NumberFormulafield__c}" headerValue="Control #"/>
+                    <apex:column value="{!a.acct.City_St_Zip__c}"/> -->
+                    <apex:column value="{!a.acct.CreatedDate}"/>
+                 <!--   <apex:column value="{!a.acct.Any_CI__c}"/> -->
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

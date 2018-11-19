@@ -1,0 +1,4 @@
+<apex:page standardController="opportunity">    
+         <apex:detail subject="{!opportunity.id}" inlineEdit="false" relatedList="true" title="true"/> 
+         
+     </apex:page>

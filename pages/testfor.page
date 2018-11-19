@@ -1,0 +1,21 @@
+<apex:page standardController="Account" id="pg" >
+<apex:form >
+<Apex:pageBlock id="pb">
+<apex:pageBlockButtons location="top">
+                
+                <apex:commandButton action="{!save}" id="saveButton" value="Save" immediate="true" />
+                <apex:commandButton onclick="resetInlineEdit()" id="cancelButton" value="Cancel" />
+                </apex:pageBlockButtons>
+<apex:pageBlockSection >
+                
+   <apex:outputField value="{!Account.sDescription__c}"/>
+   <apex:outputField value="{!Account.add_info__c}"/>
+   <apex:outputField value="{!Account.SLASerialNumber__c}"/>
+   <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" 
+                        hideOnEdit="editButton" event="ondblclick" 
+                        changedStyleClass="myBoldClass" resetFunction="resetInlineEdit"/>
+   </apex:pageBlockSection>
+   </Apex:pageBlock>
+</apex:form>
+
+</apex:page>

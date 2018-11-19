@@ -1,0 +1,8 @@
+<apex:page controller="AccountDataController" tabStyle="Account">
+  <apex:pageBlock title="Account Data Table">
+    <apex:pageBlockTable value="{!accounts}" var="account">
+      <apex:column value="{!account.id}"/>
+      <apex:column value="{!account.name}"/>
+          </apex:pageBlockTable>
+  </apex:pageBlock>
+</apex:page>

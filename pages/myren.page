@@ -1,0 +1,20 @@
+<apex:page controller="vfmyren"  >
+<apex:form id="form">
+  <apex:outputPanel id="out11" >
+   <apex:pageBlock >
+       <apex:commandButton value="display" onclick="{!display}" action="{!display}" />
+       <apex:commandButton value="back " onclick="{!back}" action="{!back}"/>
+       
+   </apex:pageBlock>
+  </apex:outputPanel>
+    <apex:outputPanel id="out" rendered="{!val}">
+      <apex:pageBlock title="basic info"  id="pgb" >
+             <apex:pageBlockSection >
+             <apex:inputField value="{!acc.phone}"/>
+             <apex:inputField value="{!acc.site}"/>
+      </apex:pageBlockSection>
+         
+      </apex:pageBlock>  
+    </apex:outputPanel>
+</apex:form>
+</apex:page>

@@ -1,0 +1,20 @@
+<apex:page standardController="Account" extensions="AddContact">
+    <apex:form id="myForm">
+    <apex:panelGrid columns="2">
+    Account Name: <apex:inputField value="{!account.name}" />
+    </apex:panelGrid>
+    <apex:repeat value="{!lContacts}" var="x">
+    <apex:panelGrid columns="8">
+    First Name:<apex:inputField value="{!x.c.firstName}" />
+    Last Name:<apex:inputField value="{!x.c.lastName}" />    
+    Lead Source:<apex:inputField value="{!x.c.leadSource}" /> 
+    <apex:commandButton action="{!deleteContact}" style="Button" value="Delete Contact" reRender="myForm" immediate="true">
+<apex:param value="{!x.counter}" name="selected"
+assignTo="{!selectedContact}"/>
+</apex:commandButton>      
+    </apex:panelGrid>
+    </apex:repeat>
+    <apex:commandButton value="Add Contact" action="{!addAContact}" reRender="myForm" immediate="true"/>    
+    <apex:commandButton value="Save" action="{!saveAccount}"  />    
+    </apex:form> 
+</apex:page>

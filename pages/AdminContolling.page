@@ -1,0 +1,14 @@
+<apex:page controller="AdminContollingPageController" >
+  <!-- This Page is for Admin task on Profile Access control -->
+   <apex:form >
+     <Apex:pageBlock >
+        <Apex:outputPanel >
+       <b> Please Select any Value from Below list see the Profile Access.</b><br/><br/>
+              Avilable List :  <apex:selectList size="1" value="{!selectedoption}">
+                  <apex:selectOptions value="{!options}"/>
+                 </apex:selectList>
+        </Apex:outputPanel>
+     </Apex:pageBlock>
+   </apex:form>
+  
+</apex:page>

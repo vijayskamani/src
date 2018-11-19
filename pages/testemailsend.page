@@ -1,0 +1,30 @@
+<apex:page controller="testemailsend">
+  <Apex:form >
+    <Apex:OutputPanel >
+      <apex:pageBlock >
+        <Apex:pageBlockSection >
+        <apex:selectList value="{!selectedTemplateId}" size="1">
+             <apex:selectOptions value="{!TemplateFolderOptions}" />
+         </apex:selectList>
+        </Apex:pageBlockSection>
+      </apex:pageBlock>
+    </Apex:OutputPanel>
+    
+    <Apex:pageBlock >
+    <Apex:pageBlockButtons >
+     <Apex:commandButton Value="Send"/>
+     <Apex:commandButton Value="Select Template"/>
+     <Apex:commandButton Value="Attach File"/>
+     <Apex:commandButton Value="Cancle"/>
+    </Apex:pageBlockButtons>
+     <Apex:pageBlockSection columns="1">
+     <Apex:inputText label="To:" value="{!to}"/>
+     <Apex:inputText Label="Additional To:" value="{!addto}"/>
+     <Apex:inputText Label="CC:" value="{!cc}"/>
+     <Apex:inputText Label="BCC:" value="{!bcc}"/>
+     <Apex:inputText Label="Subject:" required="true" value="{!sub}"/>
+     <apex:inputTextArea Label="Body" richText="true" value="{!body}"/>
+     </Apex:pageBlockSection>
+    </Apex:pageBlock>
+  </Apex:form>
+</apex:page>

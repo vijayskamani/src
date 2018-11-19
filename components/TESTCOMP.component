@@ -1,0 +1,12 @@
+<apex:component controller="IncludeAttachmentsController" access="global">
+
+    <apex:attribute name="parentId"
+        description="Parent Id"
+        assignTo="{!soId}"
+        type="Id" />
+<div>
+    <apex:repeat value="{!attachments}" var="attachment">
+        {!attachment.body}
+    </apex:repeat>
+</div>
+    </apex:component>

@@ -1,0 +1,38 @@
+<apex:page standardController="PricebookEntry" extensions="updateprice" >
+<apex:form >
+<apex:pageBlock >
+<Apex:pageblockButtons >
+   <apex:commandButton value="save"/>
+   <apex:commandButton value="cancle"/>
+   </Apex:pageblockButtons>
+   <apex:pageBlockSection >
+     <apex:selectList value="{!selectedPBNId}" size="1"> <!-- selectedAccId store the selected label value as account Id of selected account name.-->
+     Price Book Name
+                                           <apex:selectOptions value="{!PBname}" />
+                               </apex:selectList>
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="File Name" for="fileName"/>
+          <apex:inputText value="{!attachment.name}" id="fileName"/>
+        </apex:pageBlockSectionItem>
+
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="File" for="file"/>
+          <apex:inputFile value="{!attachment.body}" filename="{!attachment.name}" id="file"/>
+        </apex:pageBlockSectionItem>
+
+        <apex:pageBlockSectionItem >
+          <apex:outputLabel value="Description" for="description"/>
+          <apex:inputTextarea value="{!attachment.description}" id="description"/>
+        </apex:pageBlockSectionItem>
+                           
+                               
+                               
+   </apex:pageBlockSection>
+   
+       
+   
+   
+  </apex:pageBlock>
+</apex:form>
+ 
+</apex:page>

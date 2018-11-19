@@ -1,0 +1,44 @@
+<apex:page standardController="Case" extensions="caseeditextension">
+        <apex:sectionHeader title="{!$ObjectType.Case.label} Edit" subtitle="{!Case.Casenumber}"/>
+        <apex:form >
+        <apex:pageBlock title="{!$ObjectType.Case.label} Edit" mode="edit">
+                <apex:pageBlockButtons >
+                        <apex:commandButton action="{!save}" value="Save"/>
+                        <apex:commandButton action="{!cancel}" value="Cancel"/>
+                </apex:pageBlockButtons>
+            <apex:pageBlockSection showHeader="true" title="Case Information" columns="2">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Case Owner"/>
+                    <apex:outputText value="{!Case.Owner.Name}"/>
+                </apex:pageBlockSectionItem>
+                
+                
+                <apex:inputField value="{!Case.SuppliedName}"/>
+                
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Case Number"/>
+                    <apex:outputText value="{!Case.CaseNumber}"/>
+                </apex:pageBlockSectionItem>
+                
+                
+                <apex:inputField value="{!Case.Status}" rendered="{$Profile.Name =='System Administrator'}"/>
+                
+                
+                <apex:inputField value="{!Case.Origin}"/>
+                <apex:inputTextarea value="{!Case.Description}" cols="40" rows="10"/>
+                
+                <apex:pageBlockSectionItem />
+                <apex:inputField value="{!Case.Subject}"/>
+                <apex:pageBlockSectionItem />
+               
+                
+            </apex:pageBlockSection>
+               
+                <apex:pageBlockSection title="report">
+                  <apex:iframe src="/00O36000005FiyZ"/>
+                </apex:pageBlockSection>
+                
+        </apex:pageBlock>
+        </apex:form>
+</apex:page>

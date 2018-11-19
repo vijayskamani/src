@@ -1,0 +1,3 @@
+<apex:page standardController="Contract"  id="pg"    lightningStyleSheets="true" renderAs="Pdf">
+  <Apex:Detail subject="{!Contract.Id}" relatedList="false" title="true" inlineedit="false" />
+</apex:page>

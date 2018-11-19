@@ -1,0 +1,2 @@
+<apex:page standardController="Case" action="{!URLFOR($Action.Case.Submit,case.Id)}">
+</apex:page>

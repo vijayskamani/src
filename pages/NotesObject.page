@@ -1,0 +1,17 @@
+<apex:page controller="Notes">
+  <apex:form >
+    <Apex:pageBlock >
+    <Apex:pageBlockButtons >
+    <apex:commandButton value="Save" action="{!savecls}" id="save"/>
+    </Apex:pageBlockButtons>
+    <apex:pageblockSection >
+    <Apex:pageBlockSectionItem >
+    <p>class</P>
+         <apex:selectList id="accts" value="{!apexclassList}" size="2" title="Class" multiselect="true">
+        <apex:selectOptions value="{!classList}"></apex:selectOptions>
+        </apex:selectList>
+    </Apex:pageBlockSectionItem>
+      </apex:pageblockSection>
+    </Apex:pageBlock>
+  </apex:form>
+</apex:page>

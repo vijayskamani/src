@@ -1,0 +1,23 @@
+<apex:page controller="GetAllApexClasses">
+<apex:form >
+<apex:pageBlock >
+<!--
+<apex:pageBlockTable value="{!apexclassList}" var="apexclass">
+<apex:column >
+<apex:outputField value="{!apexclass.name}"/>
+</apex:column>
+</apex:pageBlockTable> -->
+<apex:pageblockSection title="Classes">
+<apex:commandButton value="save" action="save"/>
+<apex:pageBlockSectionItem >
+                <apex:outputPanel >
+                <apex:outputLabel >Apex Class</apex:outputLabel>
+                    <apex:selectList value="{!apexclassList}" size="2" multiselect="true">
+                        <apex:selectOptions value="{!classList}"/>
+                    </apex:selectList>
+                </apex:outputPanel>
+</apex:pageBlockSectionItem>
+</apex:pageblockSection>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

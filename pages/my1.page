@@ -1,0 +1,16 @@
+<apex:page controller="mf1vf" tabStyle="testing_tab__tab" sidebar="false">
+<apex:form >
+    <td align="center">
+<img src="{!URLFOR($Resource.contlogo)}" />
+<apex:commandButton value="for contact " onclick="{!cont}" action="{!cont}"/>
+</td>
+
+   <td align="left">
+<img src="{!URLFOR($Resource.aclogo)}" />
+<apex:commandButton value="for account " onclick="{!act}" action="{!act}"/>
+</td>
+    
+ </apex:form> 
+ <apex:include pageName="myren" rendered="{!if(2=1,true,false)}"/>
+
+</apex:page>

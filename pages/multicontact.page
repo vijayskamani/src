@@ -1,0 +1,18 @@
+<apex:page standardController="Account" extensions="AccountContactsListExample">
+  <apex:form >
+  <apex:outputText value="{!message}" rendered="{!LEN(message)>0}"/>
+   <apex:pageBlock title="Account Detail">
+      <apex:pageBlockSection title="Account">
+            <apex:inputField value="{!Account.Name}"/>
+            <apex:inputField value="{!Account.Description}"/>
+      </apex:pageBlockSection>
+      <apex:pageBlockSection title="Contacts">
+         <apex:repeat value="{!contacts}" var="Contact">
+            <apex:inputField value="{!Contact.FirstName}"/>
+            <apex:inputField value="{!Contact.LastName}"/>
+         </apex:repeat>
+      </apex:pageBlockSection>
+  </apex:pageBlock>
+   <apex:commandButton value="Save" action="{!save}"/>
+  </apex:form>
+</apex:page>

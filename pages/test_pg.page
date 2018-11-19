@@ -1,0 +1,3 @@
+<apex:page >
+  <analytics:reportChart developerName="Payments"/>
+</apex:page>

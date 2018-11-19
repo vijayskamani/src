@@ -1,0 +1,15 @@
+<apex:page controller="TestExport" contentType="application/vnd.ms-excel#AccountTable.xls" showHeader="false" standardStylesheets="false">
+<apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:inputText value="{!searchBoxstring}" label="StageName" required="true" />
+        </apex:pageBlockSection>
+       
+        <apex:pageBlockTable value="{!oplist}" var="o">
+            <apex:column value="{!o.id}"/>
+             <apex:column value="{!o.Name}"/>
+              <apex:column value="{!o.StageName}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

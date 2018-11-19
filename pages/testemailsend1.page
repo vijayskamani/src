@@ -1,0 +1,116 @@
+<apex:page controller="sendemailFromIQController" id="pg">
+    <apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" />
+     <apex:stylesheet value="/sCSS/21.0/sprites/1297816277000/Theme3/default/gc/versioning.css" />   
+     <style type="text/css">
+ 
+        .popup
+        {
+            background-color: white;
+            border-width: 2px;
+            border-style: solid;
+            z-index: 9999;
+            left: 50%;
+            padding:10px;
+            position: absolute;
+            width: 500px;
+            margin-left: -250px;
+            top:80px;
+        }
+
+        .popupBg
+        {
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 70);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+        }
+        </style>
+          <script type="text/javascript">
+            
+       function hidePoup(){
+            jQuery("[id='pg:frm:pop1']").hide();
+            jQuery("[id='pg:frm:pop2']").hide();
+        }
+        
+        function showPoup(){
+           
+            jQuery("[id='pg:frm:pop1']").show();
+            jQuery("[id='pg:frm:pop2']").show();
+           
+        }
+          
+         function reloadpg(){
+               alert('HI 3');
+         reloadthepage1();
+        }
+        
+       </script>
+        
+    <apex:form id="frm">
+        <apex:actionFunction name="reloadthepage1" action="{!reloadthepage}"  />
+        <Apex:outputPanel id="pop1" style="display:none" >
+        <apex:outputPanel styleClass="popupBg" layout="block" id="pop2" style="display:none" />
+          <apex:outputPanel styleClass="popup" layout="block" id="innerpop">
+              <apex:actionRegion >
+         <apex:pageBlock >
+             <apex:pageBlockButtons id="Pgb">
+                       <input type="button" value="OK" onclick="reloadpg()" class="btn"/>
+                        <input type="button" value="Cancel" onclick="hidePoup()"  class="btn"/>
+                 
+             </apex:pageBlockButtons>
+             <apex:pageBlockSection columns="1">
+                 
+                 
+                 <apex:pageBlockSectionItem >
+                     
+                     <Apex:outputLabel > <b>Folder</b> </Apex:outputLabel>
+                       <apex:outputPanel >
+                        <apex:selectList value="{!selectedEmailTemplateFolder}" multiselect="false" size="1" >
+                            <apex:actionSupport action="{!refreshEmailTemplateSection}" event="onchange" rerender="templateListPanel"  />
+                            <apex:selectOptions value="{!emailTemplateFolderOpts}" />
+                         </apex:selectList>
+                       </apex:outputPanel>
+                 </apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem id="templateList">
+                     <Apex:outputLabel > <b>Template :</b> </Apex:outputLabel>
+                       <apex:outputPanel id="templateListPanel">
+                        <apex:selectList id="tem" value="{!selectedEmailTemplate}" multiselect="false" size="1" >
+                         
+                         <apex:selectOptions value="{!templist}" />
+                         </apex:selectList>
+                       </apex:outputPanel>
+                 </apex:pageBlockSectionItem>
+             </apex:pageBlockSection>
+         </apex:pageBlock>
+         </apex:actionRegion>
+        </apex:outputPanel>
+        </apex:outputPanel>
+            <apex:outputPanel style="background-color:white;" >
+        <Apex:pageBlock id="pg">
+    <Apex:pageBlockButtons >
+     <Apex:commandButton Value="Send"/>
+     <Apex:commandButton Value="Select Template" onClick="showPoup();return false;"/>
+     <Apex:commandButton Value="Attach File"/>
+     <Apex:commandButton Value="Cancle"/>
+    </Apex:pageBlockButtons>
+     <Apex:pageBlockSection columns="1" >
+         <apex:outputText label="From" value="{!frm}"/>
+     <Apex:inputText label="To:" value="{!to}"/>
+     <Apex:inputText Label="Additional To:" value="{!addto}" style="width: 30%; height: 25px; font-size: 16px;"/>
+     <Apex:inputText Label="CC:" value="{!cc}" style="width: 30%; height: 25px; font-size: 16px;"/>
+     <Apex:inputText Label="BCC:" value="{!bcc}" style="width: 30%; height: 25px; font-size: 16px;"/>
+     
+     <Apex:inputText Label="Subject:" required="true" value="{!sub}" style="width: 50%; height: 20px; font-size: 16px;" />
+     <apex:inputTextArea Label="Body" richText="true" value="{!body}"/>
+     
+     </Apex:pageBlockSection>
+    </Apex:pageBlock>
+    </apex:outputPanel>
+        
+    </apex:form>
+</apex:page>
